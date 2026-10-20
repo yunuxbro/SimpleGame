@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Game01</title>
+    <link rel="icon" href="img/Mayosoft-Adobe-Round-Icons-Photoshop.jpg">
+    <link rel="stylesheet" href="css/style.css">
+
+    
+</head>
+<body>
+ 
+
+
+    <div id="header">
+        <a href="index.html" class="logo"><img id="logoimg" src="img/loo.png"></a>
+        <div class="header-right">
+          <a class="game" href="game.html">Game</a>
+          <a href="intro.html">Introduction</a>
+          <a href='feed.html'>Feedback</a>
+        </div>
+      </div>
+
+    <div class="hero">
+        <div class="box">
+
+            <h4>GUESS THE NUMBER!</h4>
+            <br>
+
+            <h1 id="H1">?</h1>
+
+            <input id="input01" type="text">
+
+            <button id="btn01">Guess</button>
+
+    
+            <h2>Result</h2>
+
+            <h3>Life <span>5</span></h3>
+
+            <h6>Score <span id="sco">0</span></h6>
+
+            <br>
+
+            <button id="btn02">Rest</button>
+        </div>
+    </div>
+    
+
+
+   <div class="footer01">
+
+
+    <ul>
+        <li>ICONS</li>
+        <li>Gallery</li>
+        <li>Cheatsheet</li>
+        <li>Requests Leaderboard</li>
+        <li>Request an Icon</li>
+    </ul>
+
+    <ul>
+        <li>TABS</li>
+
+        <li>Home</li>
+        <li>Game</li>
+        <li>Introduction</li>
+        <li>Feedback</li>
+    </ul>
+
+    <ul>
+        <li>COMPANY</li>
+        <li>Blog</li>
+        <li>Status</li>
+        <li>Contact Us</li>
+        <li>@fontawesome</li>
+    </ul>
+
+</div>
+
+    <script>
+
+        let magicNumber = Math.trunc(Math.random()*20);
+        console.log(magicNumber)
+        let life = 5;
+        let highScore = 0;
+        let score= 0;
+
+        function playSound(soundClip) {
+
+            let audio = new Audio(soundClip);
+            audio.play()
+            
+        }
+
+
+
+        document.getElementById('btn01').addEventListener('click', function() {
+
+           let userAnswer = +document.querySelector('input').value;
+
+
+                // ****** When the answer is correct *******//
+
+
+
+
+            if(!userAnswer) {
+                document.querySelector('h2').innerHTML = 'Please enter a valid number'
+
+
+
+            } else if(userAnswer === magicNumber) {
+
+                if(score < 30) {
+
+                document.querySelector('h2').innerHTML = '😊You got it right😊';
+                document.querySelector('body').style.backgroundColor = '#98FB98';
+                document.querySelector('h1').innerHTML = magicNumber;
+                document.querySelector('input').disabled = false;
+                playSound('audio/correct.mp3')
+                score = score + 10
+                document.getElementById('sco').innerHTML = score;
+                document.getElementById('img01').style.display = 'none';
+
+                // ****** When the Score > 30 *******//
+
+
+                }else {
+                    document.querySelector('h2').innerHTML = '✨CONGRATULATIONS✨YOU WON THIS GAME, PLEASE CLICK "RESET" TO TRY AGAIN'
+                    document.querySelector('body').style.backgroundColor = '#98FB98';
+                    playSound('audio/victory.wav');
+                    document.getElementById('img').style.display = 'block';
+                    document.getElementById('img01').style.display = 'none';
+
+
+
+                }
+
+
+
+            
+                if(life > highScore) {
+                    highScore = life;
+                    document.querySelector('#high').innerHTML = highScore;
+                }
+
+           } else if(userAnswer !== magicNumber) {
+
+                            // ****** When the answer is too high & too low *******//
+
+
+                if(life > 1) {
+
+                    document.querySelector('h2').innerHTML = (userAnswer > magicNumber) ? "😜That's too high😜" : "🤢That's too low🤢"
+                    document.querySelector('h2').style.body = (userAnswer > magicNumber) ? '#7CEFA' : '#FFE4C4' ;
+                    life--;
+                    document.querySelector('span').innerHTML = life;
+                    playSound('audio/wrong.mp3')
+
+                              // ****** When the lives over *******//
+
+
+                } else {
+                    document.querySelector('h2').innerHTML = '🤷‍♀️GAME OVER🤷‍♀️';
+                    document.querySelector('body').style.backgroundColor = 'red';
+                    document.querySelector('span').innerHTML = '0';
+                    document.querySelector('input').disabled = true;
+                    playSound('audio/Over.Wav')
+
+                }
+           }
+                
+           // When the guess is too high
+            //  else if(userAnswer > magicNumber) {
+
+            //     if(life > 1) {
+            //         document.querySelector('h2').innerHTML = "😜That's too high😜";
+            //         document.querySelector('body').style.backgroundColor = 8'#7CEFA';
+            //         life--;
+            //         document.querySelector('span').innerHTML = life;
+                
+            //     } else {
+            //         document.querySelector('h2').innerHTML = '🤷‍♀️GAME OVER🤷‍♀️';
+            //         document.querySelector('body').style.backgroundColor = 'red';
+            //         document.querySelector('span').innerHTML = '0';
+            //         document.querySelector('input').disabled = true;
+
+            //     }
+
+
+            // // When the guess is too low 
+            // } else if(userAnswer < magicNumber) {
+
+            //     if(life > 1) {
+            //         document.querySelector('h2').innerHTML = "🤢That's too low🤢";
+            //         document.querySelector('body').style.backgroundColor = '#FFE4C4';
+            //         life--;
+            //         document.querySelector('span').innerHTML = life;
+                
+            //     } else {
+            //         document.querySelector('h2').innerHTML = '🤷‍♀️GAME OVER🤷‍♀️';
+            //         document.querySelector('body').style.backgroundColor = 'red';
+            //         document.querySelector('span').innerHTML = '0';
+            //         document.querySelector('input').disabled = true;
+            //     }
+
+            // }
+
+        })
+
+
+                           // ****** The Rest Button *******//
+
+
+
+        document.getElementById('btn02').addEventListener('click', function() {
+
+            document.querySelector('body').style.backgroundColor = '';
+            document.querySelector('h2').innerHTML = 'Result';
+            document.querySelector('input').value = '';
+
+            magicNumber = Math.trunc(Math.random()*20);
+            console.log(`Magic Number ${magicNumber}`)
+
+
+            life = 5;
+            document.querySelector('span').innerHTML = life;
+            document.querySelector('input').disabled = false;
+
+            document.querySelector('h1').innerHTML = '?';
+
+
+        })
+
+
+
+    </script>
+</body>
+</html>

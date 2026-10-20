@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html id="feed" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Game01</title>
+    <link rel="icon" href="img/Mayosoft-Adobe-Round-Icons-Photoshop.jpg">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    
+</head>
+<body>
+ 
+
+
+    <div id="header">
+        <a href="index.html" class="logo"><img id="logoimg" src="img/loo.png"></a>
+        <div class="header-right">
+          <a class="game" href="game.html">Game</a>
+          <a href="intro.html">Introduction</a>
+          <a href="feed.html">Feedback</a>
+        </div>
+      </div>
+
+
+      <div class="paper">
+
+      <div class="box01">
+
+
+
+        <h2 id="topic"><u>Give Us Feedback</u></h2>
+        <br>
+        <br>
+        <h3>What do think of this webpage?</h2>
+        <h1>😁 🙂 😐 🙁 😢</h1>
+        <br>
+
+        <h3>What do you like?     Any comments?</h2>
+        <br>
+
+        <input id="input" type="text">
+        <h1></h1>
+
+        <button id="btn03">Submit Feedback</button>
+
+
+       
+    </div>
+
+  </div>
+
+
+
+  
+  <div class="footer01">
+
+
+    <ul>
+        <li>ICONS</li>
+        <li>Gallery</li>
+        <li>Cheatsheet</li>
+        <li>Requests Leaderboard</li>
+        <li>Request an Icon</li>
+    </ul>
+
+    <ul>
+        <li>TABS</li>
+
+        <li>Home</li>
+        <li>Game</li>
+        <li>Introduction</li>
+        <li>Feedback</li>
+    </ul>
+
+    <ul>
+        <li>COMPANY</li>
+        <li>Blog</li>
+        <li>Status</li>
+        <li>Contact Us</li>
+        <li>@fontawesome</li>
+    </ul>
+
+</div>
+
+
+      <script>
+
+        document.getElementById('btn03').addEventListener('click', function() {
+
+          document.querySelector('h3').style.display = 'none';
+
+          document.querySelector('input').value = '';
+          document.querySelector('h1').innerHTML = '"THANKS FOR YOUR FEEDBACK....."';
+
+        })
+
+
+
+
+
+      </script>
+
+      </body>
+
+      </html>

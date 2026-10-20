@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Game01</title>
+    <link rel="icon" href="img/Mayosoft-Adobe-Round-Icons-Photoshop.jpg">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    
+</head>
+<body>
+ 
+
+
+    <div id="header">
+        <a href="index.html" class="logo"><img id="logoimg" src="img/loo.png"></a>
+        <div class="header-right">
+          <a class="game" href="game.html">Game</a>
+          <a href="intro.html">Introduction</a>
+          <a href="feed.html">Feedback</a>
+        </div>
+      </div>
+
+       
+        
+        <h2>Automatic Slideshow</h2>
+        <p>Change image every 2 seconds:</p>
+
+        <div class="slide">
+        
+        <div class="slideshow-container">
+        
+
+        
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 2</div>
+            <img class="side" src="img/images02.jpg" style="width:100%">
+          </div>
+        
+          <div class="mySlides fade">
+              <div class="numbertext">2 / 2</div>
+              <img class="side" src="img/images03.png" style="width:100%">
+          </div>
+        
+
+
+        </div>
+        <br>
+        
+        <div class="dotset" style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+
+      </div>
+
+
+
+      
+   <div class="footer01">
+
+
+    <ul>
+        <li>ICONS</li>
+        <li>Gallery</li>
+        <li>Cheatsheet</li>
+        <li>Requests Leaderboard</li>
+        <li>Request an Icon</li>
+    </ul>
+
+    <ul>
+        <li>TABS</li>
+
+        <li>Home</li>
+        <li>Game</li>
+        <li>Introduction</li>
+        <li>Feedback</li>
+    </ul>
+
+    <ul>
+        <li>COMPANY</li>
+        <li>Blog</li>
+        <li>Status</li>
+        <li>Contact Us</li>
+        <li>@fontawesome</li>
+    </ul>
+
+</div>
+        
+        </body>
+        
+        <script>
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 7000); 
+        }
+        </script>
+        
+     
+</body>
+
+</html>
